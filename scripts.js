@@ -1,7 +1,8 @@
 const taskEnter=document.querySelector(".inputTask")
 const plus=document.querySelector(".plusButton")
 const ulTag=document.querySelector(".newItem")
-console.log(ulTag)
+const deleteAll=document.querySelector(".delete-all")
+console.log(deleteAll)
 plus.addEventListener("click",Emptycontrol)
 
 function Emptycontrol(){
@@ -24,7 +25,6 @@ function Emptycontrol(){
         newli.appendChild(atag)
         ulTag.appendChild(newli)
         taskEnter.value=""
-
         var newItem=newli.atag
         console.log(ulTag)
 
@@ -32,9 +32,17 @@ function Emptycontrol(){
     
 }
 
-newItem.addEventListener("click",removeItem)
+ulTag.addEventListener("click",removeItem)
 
-function removeItem(){
-    console.log("item remove içindeyim")
-    newItem.removeItem
+function removeItem(e){
+    if (e.target.textContent="+"){
+        e.target.parentElement.remove()      
+    }
+}
+
+deleteAll.addEventListener("click",deleteAllItems)
+
+function deleteAllItems(e){
+    ulTag.innerHTML=""
+
 }
